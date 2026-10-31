@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>FeetFoot77 (@feetfoot77) • Photos et vidéos Instagram</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-elevated: #121212;
+      --bg-card: #1a1a1a;
+      --text: #f5f5f5;
+      --text-muted: #a8a8a8;
+      --border: #262626;
+      --blue: #0095f6;
+      --blue-hover: #1877f2;
+      --btn-secondary: #363636;
+      --danger: #ff3040;
+      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      padding-bottom: 76px;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.3px;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    /* Profile Header */
+    .profile-header {
+      padding: 16px 16px 12px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .avatar-ring {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--insta-gradient);
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform 0.15s ease;
+    }
+
+    .avatar-ring:active {
+      transform: scale(0.95);
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1c1c1c;
+      border: 3px solid var(--bg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .live-tag {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #c90083, #ff004c);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 2px solid var(--bg);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .stats {
+      display: flex;
+      flex: 1;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .stat-item {
+      cursor: pointer;
+    }
+
+    .stat-num {
+      font-weight: 700;
+      font-size: 17px;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* Bio */
+    .bio {
+      font-size: 14px;
+      line-height: 1.42;
+      margin-bottom: 14px;
+    }
+
+    .bio-name {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bio-category {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .bio-link {
+      color: #e0f1ff;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .followed-by {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .followed-by strong {
+      color: var(--text);
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      flex: 1;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background-color: var(--blue);
+      color: #fff;
+    }
+
+    .btn-primary.following {
+      background-color: var(--btn-secondary);
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      background-color: var(--btn-secondary);
+      color: var(--text);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Highlights */
+    .highlights {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+    }
+
+    .highlights::-webkit-scrollbar {
+      display: none;
+    }
+
+    .highlight-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+      width: 68px;
+    }
+
+    .highlight-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1.5px solid #3a3a3a;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease;
+    }
+
+    .highlight-item:active .highlight-circle {
+      transform: scale(0.93);
+    }
+
+    .highlight-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1e1e1e;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .highlight-title {
+      font-size: 11px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 49px;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 20;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 11px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 1.5px solid transparent;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tab.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* Grid View */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .grid-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #181818;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .grid-item:active img {
+      transform: scale(0.97);
+    }
+
+    .badge-icon {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 13px;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.85));
+    }
+
+    /* Feed List View (when switching tab) */
+    .feed-view {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+
+    .feed-view.active {
+      display: flex;
+    }
+
+    .grid.hidden {
+      display: none;
+    }
+
+    /* Post Modal / Card */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.18s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .post-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .post-location {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
+    }
+
+    .post-user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--insta-gradient);
+      padding: 2px;
+      flex-shrink: 0;
+    }
+
+    .post-user-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #181818;
+    }
+
+    .post-media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .post-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 5;
+    }
+
+    .nav-arrow.prev { left: 8px; }
+    .nav-arrow.next { right: 8px; }
+
+    .heart-burst {
+      position: absolute;
+      font-size: 86px;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0);
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+      z-index: 6;
+    }
+
+    .heart-burst.animate {
+      animation: popHeart 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+    }
+
+    @keyframes popHeart {
+      0% { opacity: 0; transform: scale(0); }
+      25% { opacity: 1; transform: scale(1.2); }
+      45% { transform: scale(0.95); }
+      70% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.1); }
+    }
+
+    .post-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px 6px;
+    }
+
+    .post-actions-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .like-btn.liked svg {
+      fill: var(--danger);
+      stroke: var(--danger);
+      animation: pulse 0.25s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    .post-body {
+      padding: 0 14px 14px;
+      font-size: 13.5px;
+      line-height: 1.4;
+      overflow-y: auto;
+    }
+
+    .post-likes {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .post-comments {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .comment-input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .comment-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .comment-submit {
+      background: none;
+      border: none;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 76px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #262626;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      border: 1px solid #383838;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 200;
+      white-space: nowrap;
+      max-width: 92vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      z-index: 40;
+    }
+
+    /* QR Code Modal */
+    .qr-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
+    }
+
+    .qr-box {
+      background: #fff;
+      padding: 16px;
+      border-radius: 16px;
+      display: inline-block;
+      margin: 16px 0;
+    }
+
+    .qr-url-input {
+      width: 100%;
+      background: #1f1f1f;
+      border: 1px solid #363636;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span>feetfoot77</span>
+      <span class="verified-badge" title="Pieds & Chaussures Certifiés">
+        <svg viewBox="0 0 40 40" width="18" height="18" fill="#0095f6">
+          <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z"/>
+        </svg>
+      </span>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" onclick="openRandomPost()" title="Photo de pied au hasard 🎲">
+        🎲
+      </button>
+      <button class="icon-btn" onclick="openQrModal()" title="Afficher le QR Code">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="triggerMegaLike()" title="Liker le costume !">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-header">
+    <div class="profile-top">
+      <div class="avatar-ring" onclick="openPostModal(0)" title="Voir le post légendaire">
+        <div class="avatar-inner">
+          <img src="photos/IMG-20260724-WA0008.jpg" alt="FeetFoot77" />
+        </div>
+        <span class="live-tag">HALLOWEEN 🎃</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item" onclick="switchView('grid')">
+          <span class="stat-num" id="post-count">30</span>
+          <span class="stat-label">publications</span>
+        </div>
+        <div class="stat-item" onclick="toggleFollow()">
+          <span class="stat-num" id="follower-count">77,4K</span>
+          <span class="stat-label">followers</span>
+        </div>
+        <div class="stat-item" onclick="showToast('👣 On ne suit que les meilleurs orteils du 77')">
+          <span class="stat-num">77</span>
+          <span class="stat-label">suivi(e)s</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bio">
+      <div class="bio-name">
+        FeetFoot 77 🦶👟✨ (Collectif Officiel)
+      </div>
+      <div class="bio-category">Art Pédestre • Claquettes • Cigares &amp; Chaussure Géante</div>
+      <div>
+        🎃 <strong>En direct de la soirée d'Halloween en Chaussure Géante !</strong><br/>
+        🦶 Les plus beaux panards, orteils et semelles entre potes<br/>
+        🚬 Cubains tenus à l'orteil • 🛁 Jacuzzi en pantalon de costume<br/>
+        👇 <strong>Scanne, abonne-toi et like ton panard préféré !</strong>
+      </div>
+      <a href="#like" class="bio-link" onclick="event.preventDefault(); triggerMegaLike();">
+        🔗 onlyfeet77.fr/vip-semelle-club
+      </a>
+      <div class="followed-by">
+        Suivi(e) par <strong>quiksilver_claquettes</strong>, <strong>cigare_orteil</strong> et <strong>77 autres panards</strong>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary" id="follow-btn" onclick="toggleFollow()">
+        S'abonner
+      </button>
+      <button class="btn btn-secondary" onclick="triggerMegaLike()">
+        ❤️ Liker le costume (<span id="costume-likes">666</span>)
+      </button>
+    </div>
+
+    <!-- Story Highlights with Real Photos -->
+    <div class="highlights">
+      <div class="highlight-item" onclick="openPostModal(0)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260724-WA0008.jpg" alt="VIP Cigare" /></div></div>
+        <span class="highlight-title">VIP Cigare 🚬</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(2)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260817-WA0001.jpg" alt="Jacuzzi" /></div></div>
+        <span class="highlight-title">Jacuzzi Sec 🛁</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(3)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260815-WA0004.jpg" alt="Roadtrip" /></div></div>
+        <span class="highlight-title">Airbag 🌅</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(4)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260726-WA0003.jpg" alt="Botanique" /></div></div>
+        <span class="highlight-title">Botanique 🌿</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(6)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260723-WA0012.jpg" alt="Bagarre" /></div></div>
+        <span class="highlight-title">Check Orteil 🤝</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(9)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="photos/IMG-20260808-WA0003.jpg" alt="Toutou" /></div></div>
+        <span class="highlight-title">La Patte 🐾</span>
+      </div>
+      <div class="highlight-item" onclick="openPostModal(1)">
+        <div class="highlight-circle"><div class="highlight-inner"><img src="assets/post3.jpg" alt="Halloween" /></div></div>
+        <span class="highlight-title">Halloween 🎃</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs (Grid vs Feed scroll) -->
+  <div class="tabs">
+    <div class="tab active" id="tab-grid" onclick="switchView('grid')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>GRILLE</span>
+    </div>
+    <div class="tab" id="tab-feed" onclick="switchView('feed')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+        <line x1="4" y1="9" x2="20" y2="9"></line>
+        <line x1="4" y1="15" x2="20" y2="15"></line>
+      </svg>
+      <span>FIL COMPLET</span>
+    </div>
+    <div class="tab" onclick="openRandomPost()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>SURPRISE 🎲</span>
+    </div>
+  </div>
+
+  <!-- Posts Grid -->
+  <main class="grid" id="posts-grid"></main>
+
+  <!-- Full Scrollable Feed View -->
+  <section class="feed-view" id="feed-view"></section>
+
+  <!-- Post Detail Modal -->
+  <div class="modal-backdrop" id="post-modal" onclick="if(event.target===this) closePostModal()">
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-user">
+          <div class="post-user-avatar">
+            <img src="photos/IMG-20260724-WA0008.jpg" alt="avatar" />
+          </div>
+          <div>
+            <span>feetfoot77</span>
+            <span class="post-location" id="modal-location">Seine-et-Marne (77)</span>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="closePostModal()">✕</button>
+      </div>
+      <div class="post-media" ondblclick="doubleTapLike()">
+        <button class="nav-arrow prev" onclick="event.stopPropagation(); navigatePost(-1)" title="Précédent">‹</button>
+        <img id="modal-img" src="" alt="" />
+        <button class="nav-arrow next" onclick="event.stopPropagation(); navigatePost(1)" title="Suivant">›</button>
+        <div class="heart-burst" id="heart-burst">❤️</div>
+      </div>
+      <div class="post-actions">
+        <div class="post-actions-left">
+          <button class="icon-btn like-btn" id="modal-like-btn" onclick="togglePostLike()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="icon-btn" onclick="document.getElementById('comment-input').focus()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </button>
+        </div>
+        <span style="font-size:12px; color:var(--text-muted);" id="modal-counter">1 / 30</span>
+      </div>
+      <div class="post-body">
+        <div class="post-likes" id="modal-likes">0 J'aime</div>
+        <div id="modal-caption"></div>
+        <div class="post-comments" id="modal-comments"></div>
+        <form class="comment-input-row" onsubmit="submitComment(event)">
+          <input type="text" id="comment-input" class="comment-input" placeholder="Ajouter un commentaire sur ce pied..." />
+          <button type="submit" class="comment-submit">Publier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code Modal -->
+  <div class="modal-backdrop" id="qr-modal" onclick="if(event.target===this) closeQrModal()">
+    <div class="qr-card">
+      <h3 style="font-size:18px; margin-bottom:4px;">👟 @FEETFOOT77</h3>
+      <p style="font-size:12px; color:var(--text-muted);">Scanne pour liker la chaussure géante &amp; le gang des pieds !</p>
+      <div class="qr-box">
+        <img id="qr-img" width="200" height="200" alt="QR Code FeetFoot77" />
+      </div>
+      <input type="text" id="qr-url" class="qr-url-input" oninput="updateQrCode(this.value)" />
+      <p style="font-size:11px; color:var(--text-muted); margin-top:8px;">
+        Colle ici l'adresse web de ta page hébergée pour générer ton QR Code à imprimer sur ton costume !
+      </p>
+      <button class="btn btn-primary" style="width:100%; margin-top:14px;" onclick="closeQrModal()">Fermer</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <button class="icon-btn" onclick="switchView('grid'); window.scrollTo({top:0, behavior:'smooth'})" title="Accueil">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      </svg>
+    </button>
+    <button class="icon-btn" onclick="switchView('feed')" title="Fil complet">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+        <line x1="4" y1="9" x2="20" y2="9"></line>
+        <line x1="4" y1="15" x2="20" y2="15"></line>
+      </svg>
+    </button>
+    <button class="icon-btn" onclick="triggerMegaLike()" title="Liker">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </button>
+    <button class="icon-btn" onclick="openQrModal()" title="QR Code">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+    </button>
+  </nav>
+
+  <script>
+    const posts = [
+      {
+        img: "photos/IMG-20260724-WA0008.jpg",
+        location: "Havana Foot Club • Canapé Velours",
+        likes: 7742,
+        pinned: true,
+        caption: "Les jaloux diront que c'est du montage. Petit barreau de chaise cubain calé entre le gros orteil et l'index de pied après une dure journée de marche 🚬🦶 #BossLife #OrteilCubain #FeetFoot77 #ParrainDu77",
+        comments: [
+          { user: "thomas_shelby_du_77", text: "Par ordre des Peaky Panards 🔥🚬" },
+          { user: "briquet_perdu", text: "Qui lui allume son cigare du coup ?!" }
+        ]
+      },
+      {
+        img: "assets/post3.jpg",
+        location: "Soirée Halloween 2026 • En Direct",
+        likes: 6660,
+        pinned: true,
+        caption: "🎃 CE SOIR J'AI PRIS FORME HUMAINE (enfin, forme de Chaussure Géante). Si tu viens de scanner mon QR Code sur mon costume, lâche ton plus beau like ! #Halloween2026 #ChaussureGéante #FeetFoot77",
+        comments: [
+          { user: "citrouille_77", text: "Le meilleur déguisement de la soirée sans débat 👟🎃" },
+          { user: "cendrillon_off", text: "J'ai perdu ma chaussure, c'est toi ?!" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260817-WA0001.jpg",
+        location: "Spa & Business Center • Jacuzzi Sec",
+        likes: 5390,
+        pinned: true,
+        caption: "Quand t'as réunion Zoom à 18h mais séance balnéo à 18h02 (on a oublié de mettre l'eau, mais le pantalon de costume est sec) 🛁👔🦶 #WorkLifeBalance #JacuzziSansEau #PiedsPropres",
+        comments: [
+          { user: "plombier_du_dimanche", text: "Frérot faut tourner le robinet avant de rentrer dedans 😭" },
+          { user: "costard_cravate", text: "Le pli du pantalon est impeccable nonobstant" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260815-WA0004.jpg",
+        location: "Autoroute du Soleil • Zone Airbag",
+        likes: 4890,
+        caption: "Golden hour sur le tableau de bord ✨ Vernis pailleté, sandale blanche et mention AIRBAG juste à côté pour le frisson du voyage 🌅🚗💅 #PassengerPrincess #SunsetFeet #Roadtrip77",
+        comments: [
+          { user: "securite_routiere_off", text: "L'airbag en sueur devant tant de paillettes ✨" },
+          { user: "sunset_lovers", text: "La vraie star c'est le camion devant ou le vernis ?" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260726-WA0003.jpg",
+        location: "Jardin Botanique • Exposition Contemporaine",
+        likes: 4215,
+        caption: "Ne faites plus qu'un avec la chlorophylle 🌿 Nouvelle coupe végétale d'été pour camoufler les orteils en milieu hostile. #ArtContemporain #PiedPlante #JardilandVibes",
+        comments: [
+          { user: "silence_ca_pousse", text: "Il faut arroser les orteils 2 fois par semaine minimum 🌱" },
+          { user: "pothos_en_detresse", text: "Libérez cette plante svp 😂" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0027.jpg",
+        location: "Terrasse Gazon • Duel au Sommet",
+        likes: 3680,
+        caption: "Pied humain vs Pied de table en fonte : qui gagne le concours d'élégance ? (Bonus : la capsule de bière retournée en arbitre officiel) 🍺🦶⚔️ #PiedDeTable #DuelDeTitans",
+        comments: [
+          { user: "brocanteur_77", text: "Le galbe du pied en fonte est redoutable" },
+          { user: "capsule_kro", text: "J'étais là, j'ai tout vu." }
+        ]
+      },
+      {
+        img: "photos/IMG-20260723-WA0012.jpg",
+        location: "Terrasse Nocturne • Pacte de Sang",
+        likes: 3920,
+        caption: "Les vrais amis ne se serrent pas la main, ils se serrent le gros orteil 🤝🦶 Contrat signé pour toute la soirée. #CheckDOrteil #AmitiéSincère #77Gang",
+        comments: [
+          { user: "notaire_assermente", text: "Juridiquement ce contrat vaut plus qu'une signature." },
+          { user: "bataille_de_pouces", text: "1, 2, 3, 4, je déclare la guerre des orteils !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260722-WA0000.jpg",
+        location: "Salle de Bain VIP • Mousse Party",
+        likes: 4510,
+        caption: "Contenu exclusif : l'heure du shampoing d'orteils 🫧🧼 Douceur extrême garantie avant de remettre les baskets. #SoapyFeet #SpaDay #MousseParty",
+        comments: [
+          { user: "tahiti_douche", text: "99% de mousse, 100% de charisme 🫧" }
+        ]
+      },
+      {
+        img: "photos/IMG-20261017-WA0000.jpg",
+        location: "RER / Métro • Coup de Foudre",
+        likes: 5120,
+        caption: "Et soudain dans les transports... nos semelles se sont dit oui 🥺👉👈 Adidas Gazelle x Doc Martens : une histoire d'amour moderne (avec une basket bleue jalouse à gauche). #BisouDeChaussures #RencontreRER",
+        comments: [
+          { user: "sncf_romantique", text: "Plus beau que Titanic ❤️👟" },
+          { user: "basket_bleue", text: "Moi qui tiens la chandelle à gauche..." }
+        ]
+      },
+      {
+        img: "photos/IMG-20260808-WA0003.jpg",
+        location: "Terrasse • Invité Spécial",
+        likes: 8940,
+        caption: "GUEST STAR : Même le chien a voulu poser sa patte sur le compte @feetfoot77 🐾🐕 Validé à 1000% par le conseil d'administration. #DonneLaPatte #GoodBoy #PatteCertifiée",
+        comments: [
+          { user: "brigitte_bardot", text: "La plus belle patte de tout le compte ❤️🐾" },
+          { user: "croquette_gang", text: "Il mérite 100 000 likes minimum !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260806-WA0004.jpg",
+        location: "Maternité du Gang • Pointure 16",
+        likes: 9210,
+        caption: "La relève de @feetfoot77 est officiellement assurée 👶🦶 Mini-panard en formation, déjà plus photogénique que nous tous réunis ! #MiniFoot #NouvelleRecrue #Pointure16",
+        comments: [
+          { user: "maman_gateau", text: "Beaucoup trop chou ce petit pied potelé 🥺❤️" },
+          { user: "futur_influenceur", text: "Déjà prêt pour l'héritage du compte !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260724-WA0009.jpg",
+        location: "Havana Foot Club • Angle Caméra 2",
+        likes: 3890,
+        caption: "POV : Tu dois de l'argent au Parrain du 77 et il te regarde droit dans les yeux avec son barreau de chaise 🚬😤 #DeuxièmeAngle #CigareOrteil #MafiaDuPied",
+        comments: [
+          { user: "al_capone_77", text: "Je rembourse tout demain promis patron !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0029.jpg",
+        location: "Siège Passager • Boîte à Gants",
+        likes: 2840,
+        caption: "Pourquoi utiliser ses mains quand on peut ouvrir la boîte à gants avec les orteils ? (Pendant que l'Adidas blanche se repose sur le tapis) 👟🚗 #CoPilotePro #Souplesse",
+        comments: [
+          { user: "auto_ecole_77", text: "C'est donc ça la conduite accompagnée ?" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260723-WA0008.jpg",
+        location: "Cabine d'Essayage • Double Reflet",
+        likes: 3490,
+        caption: "Séance essayage : double dose de sandales blanches grâce au miroir de la cabine 🪞👠 On achète ou on achète ? #ShoppingSpree #SandalesCarrées #FashionFeet",
+        comments: [
+          { user: "cristina_cordula", text: "Ma chérie c'est magnifaïk ! ✨" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260719-WA0000.jpg",
+        location: "Chambre • Drap Vert Menthe",
+        likes: 2950,
+        caption: "Morning routine : réveil en douceur, 0% filtre, 100% pilosité hivernale prête à affronter la journée 🛌☀️🦶 #WakeUpLikeThis #MorningFeet #SansTrucage",
+        comments: [
+          { user: "couette_chaude", text: "Recouche-toi il fait trop froid dehors !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0063.jpg",
+        location: "Sous la Table • Réunion Secrète",
+        likes: 2730,
+        caption: "Ce qui se passe sous la table reste sous la table : équipe pieds nus croisés vs équipe claquettes Quiksilver empilées 🩴🦶 #UnderTheTable #TeamClaquettes",
+        comments: [
+          { user: "quiksilver_off", text: "La maîtrise de l'empilement de claquettes à droite : 10/10" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0073.jpg",
+        location: "Parquet Studio • Rayon Divin",
+        likes: 3180,
+        caption: "Quand Dieu décide d'illuminer uniquement ton gros orteil d'un rayon de soleil divin ☀️✨ L'élu de la prophétie. #OrteilBéni #RayonDeSoleil #Art",
+        comments: [
+          { user: "louvre_museum", text: "Un clair-obscur digne du Caravage 🎨" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260723-WA0009.jpg",
+        location: "Terrasse de Nuit • Mêlée Générale",
+        likes: 3340,
+        caption: "2h du matin sur la terrasse : mêlée d'orteils et attaque surprise de chatouilles dans le flou artistique le plus total 😂🖐️🦶 #ChaosNocturne #AttaqueDeChatouilles",
+        comments: [
+          { user: "arbitre_rugby", text: "Y a plaquage haut sur la cheville là !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260723-WA0011.jpg",
+        location: "Terrasse • Antenne 5G",
+        likes: 2890,
+        caption: "Quand tu captes pas la 4G en soirée alors tu lèves le pied au ciel en écartant les orteils au maximum 📡🦶 #AntenneHumaine #5GActivée",
+        comments: [
+          { user: "operateur_reseau", text: "5 barres de réseau captées instantanément 📶" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0061.jpg",
+        location: "Parquet • Ombre Chinoise",
+        likes: 2410,
+        caption: "Claquette Quiksilver solitaire, éclairage dramatique digne d'un thriller Netflix 🩴🎬 #Suspense #ClaquetteNoire",
+        comments: [
+          { user: "netflix_fr", text: "Prochainement sur vos écrans : Casa de Claquettes." }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0064.jpg",
+        location: "Sous la Table • Sponsorisé par Carrefour",
+        likes: 2560,
+        caption: "Position pointe de danseuse étoile sous la table + sac cabas Carrefour en guest star derrière 🩰🛍️ #LacDesCygnes #PlacementDeProduit",
+        comments: [
+          { user: "opera_de_paris", text: "Quelle cambrure, embauché direct au ballet !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260718-WA0074.jpg",
+        location: "Salon • Ligne de Lumière",
+        likes: 2390,
+        caption: "Ne pas dépasser la ligne blanche lumineuse ⚠️ Petit bobo de guerre sur la cheville mais le panard reste fier. #SurLaLigne #Survivor",
+        comments: [
+          { user: "moustique_tigre", text: "Désolé pour la cheville c'était trop tentant 🦟" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260723-WA0010.jpg",
+        location: "Terrasse • Fin de Soirée",
+        likes: 2640,
+        caption: "Claquettes abandonnées au combat, pieds enfin libérés sur les dalles de bois 🌙🩴 #LibérésDélivrés #NuitDÉté",
+        comments: [
+          { user: "voisin_du_dessous", text: "On entend vos orteils respirer d'ici 😂" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260724-WA0007.jpg",
+        location: "En Train • Mission Infiltration",
+        likes: 2780,
+        caption: "Paparazzi dans les transports : cargo vert & baskets blanches d'un côté, sandales cuir de l'autre 🚆📸 #TrainLife #EspionDuPied",
+        comments: [
+          { user: "controleur_sncf", text: "Vos billets et vos certificats de pédicure svp !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260808-WA0002.jpg",
+        location: "Chemin d'Été • Rencontre au Sommet",
+        likes: 2690,
+        caption: "Duel estival sur graviers : Claquettes de plage vs Air Force 1 blanches qui s'incrustent à gauche ☀️👟🩴 #SummerWalk #GravierQuiPique",
+        comments: [
+          { user: "petit_caillou", text: "J'attends le bon moment pour me glisser sous son talon 😈" }
+        ]
+      },
+      {
+        img: "photos/IMG-20260816-WA0001.jpg",
+        location: "Studio Casting • Fond Blanc",
+        likes: 2810,
+        caption: "Photo officielle pour la carte d'identité @feetfoot77 🪪 Minimalisme pur, lévitation contrôlée à 3cm du drap bleu. #CastingModel #Lévitation",
+        comments: [
+          { user: "agence_elite_foot", text: "Vous êtes pris pour la Fashion Week de Melun !" }
+        ]
+      },
+      {
+        img: "photos/IMG-20261004-WA0006.jpg",
+        location: "Bitume by Night • En Cavale",
+        likes: 3120,
+        caption: "Flou de vitesse : claquettes dorées, vernis rouge incendiaire et jean large lancés à 45 km/h vers le bar 🏃‍♀️💅✨ #FastAndFootious #NightOut",
+        comments: [
+          { user: "radar_automatique", text: "Flashée à 48 km/h en claquettes dorées 📸⚡" }
+        ]
+      },
+      {
+        img: "assets/post1.jpg",
+        location: "Plage Privée • Mascotte Officielle",
+        likes: 3410,
+        caption: "Même notre mascotte Chaussure Géante a droit à ses congés payés au soleil avec son cocktail 🏖️🍹👟 #MascotteFeetFoot77 #Vacances",
+        comments: [
+          { user: "tong_bresilienne", text: "Attention aux coups de soleil sur la languette !" }
+        ]
+      },
+      {
+        img: "assets/post2.jpg",
+        location: "Salle de Sport • Préparation Halloween",
+        likes: 2985,
+        caption: "Entraînement intensif de la Chaussure Géante avant de débarquer dans votre soirée d'Halloween ce soir 🏋️‍♂️👟💦 #NoPainNoShoe #Cardio",
+        comments: [
+          { user: "lacet_defait", text: "Fais gaffe tu vas trébucher sur le tapis !" }
+        ]
+      },
+      {
+        img: "assets/avatar.jpg",
+        location: "Rooftop VIP • Chaussure Géante",
+        likes: 4150,
+        caption: "Selfie de la Chaussure Géante avant de rejoindre toute l'équipe @feetfoot77 en soirée 😎👟✨ #ChaussureInfluenceuse #HalloweenParty",
+        comments: [
+          { user: "cirage_luxe", text: "Ça brille fort ce soir 💎" }
+        ]
+      }
+    ].map((p, idx) => ({ ...p, id: idx + 1, liked: false }));
+
+    let activePostIndex = 0;
+    let isFollowing = localStorage.getItem('ff77_follow') === 'true';
+    let costumeLikes = parseInt(localStorage.getItem('ff77_likes') || '666', 10);
+
+    function init() {
+      document.getElementById('post-count').textContent = posts.length;
+      document.getElementById('costume-likes').textContent = costumeLikes;
+      updateFollowUI();
+      renderGrid();
+      renderFeed();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('posts-grid');
+      grid.innerHTML = posts.map((post, idx) => `
+        <div class="grid-item" onclick="openPostModal(${idx})">
+          <img src="${post.img}" alt="Post ${idx + 1}" loading="lazy" />
+          ${post.pinned ? `<div class="badge-icon">📌</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderFeed() {
+      const feed = document.getElementById('feed-view');
+      feed.innerHTML = posts.map((post, idx) => `
+        <article class="post-card" style="max-width:100%; max-height:none; border-radius:0; border-left:none; border-right:none;">
+          <div class="post-header">
+            <div class="post-user">
+              <div class="post-user-avatar">
+                <img src="photos/IMG-20260724-WA0008.jpg" alt="avatar" />
+              </div>
+              <div>
+                <span>feetfoot77</span>
+                <span class="post-location">${post.location}</span>
+              </div>
+            </div>
+            <span style="font-size:12px; color:var(--text-muted);">#${idx + 1}</span>
+          </div>
+          <div class="post-media" ondblclick="likeFromFeed(${idx})">
+            <img src="${post.img}" alt="Post ${idx + 1}" loading="lazy" />
+            <div class="heart-burst" id="feed-burst-${idx}">❤️</div>
+          </div>
+          <div class="post-actions">
+            <div class="post-actions-left">
+              <button class="icon-btn like-btn ${post.liked ? 'liked' : ''}" id="feed-like-btn-${idx}" onclick="toggleFeedLike(${idx})">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <button class="icon-btn" onclick="openPostModal(${idx})">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="post-body">
+            <div class="post-likes" id="feed-likes-${idx}">${post.likes.toLocaleString('fr-FR')} J'aime</div>
+            <div><strong>feetfoot77</strong> ${post.caption}</div>
+            <div class="post-comments">
+              ${post.comments.map(c => `<div><strong>${c.user}</strong> ${c.text}</div>`).join('')}
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function switchView(mode) {
+      const grid = document.getElementById('posts-grid');
+      const feed = document.getElementById('feed-view');
+      const tabGrid = document.getElementById('tab-grid');
+      const tabFeed = document.getElementById('tab-feed');
+
+      if (mode === 'feed') {
+        grid.classList.add('hidden');
+        feed.classList.add('active');
+        tabGrid.classList.remove('active');
+        tabFeed.classList.add('active');
+      } else {
+        grid.classList.remove('hidden');
+        feed.classList.remove('active');
+        tabGrid.classList.add('active');
+        tabFeed.classList.remove('active');
+      }
+    }
+
+    function openPostModal(idx) {
+      activePostIndex = idx;
+      updateModalDetails();
+      document.getElementById('post-modal').classList.add('open');
+    }
+
+    function navigatePost(delta) {
+      activePostIndex = (activePostIndex + delta + posts.length) % posts.length;
+      updateModalDetails();
+    }
+
+    function openRandomPost() {
+      const randomIdx = Math.floor(Math.random() * posts.length);
+      openPostModal(randomIdx);
+      showToast(`🎲 Panard mystère #${randomIdx + 1} sur ${posts.length} !`);
+    }
+
+    function updateModalDetails() {
+      const post = posts[activePostIndex];
+      document.getElementById('modal-img').src = post.img;
+      document.getElementById('modal-location').textContent = post.location;
+      document.getElementById('modal-counter').textContent = `${activePostIndex + 1} / ${posts.length}`;
+      document.getElementById('modal-likes').textContent = `${post.likes.toLocaleString('fr-FR')} J'aime`;
+      document.getElementById('modal-caption').innerHTML = `<strong>feetfoot77</strong> ${post.caption}`;
+      const likeBtn = document.getElementById('modal-like-btn');
+      likeBtn.classList.toggle('liked', post.liked);
+
+      const commentsEl = document.getElementById('modal-comments');
+      commentsEl.innerHTML = post.comments.map(c =>
+        `<div><strong>${c.user}</strong> ${c.text}</div>`
+      ).join('');
+    }
+
+    function closePostModal() {
+      document.getElementById('post-modal').classList.remove('open');
+    }
+
+    function togglePostLike() {
+      const post = posts[activePostIndex];
+      post.liked = !post.liked;
+      post.likes += post.liked ? 1 : -1;
+      updateModalDetails();
+      syncFeedItem(activePostIndex);
+      if (post.liked) {
+        triggerHeartBurst('heart-burst');
+      }
+    }
+
+    function doubleTapLike() {
+      const post = posts[activePostIndex];
+      if (!post.liked) {
+        post.liked = true;
+        post.likes += 1;
+        updateModalDetails();
+        syncFeedItem(activePostIndex);
+      }
+      triggerHeartBurst('heart-burst');
+    }
+
+    function toggleFeedLike(idx) {
+      const post = posts[idx];
+      post.liked = !post.liked;
+      post.likes += post.liked ? 1 : -1;
+      syncFeedItem(idx);
+      if (post.liked) {
+        triggerHeartBurst(`feed-burst-${idx}`);
+      }
+    }
+
+    function likeFromFeed(idx) {
+      const post = posts[idx];
+      if (!post.liked) {
+        post.liked = true;
+        post.likes += 1;
+        syncFeedItem(idx);
+      }
+      triggerHeartBurst(`feed-burst-${idx}`);
+    }
+
+    function syncFeedItem(idx) {
+      const post = posts[idx];
+      const likesEl = document.getElementById(`feed-likes-${idx}`);
+      const btnEl = document.getElementById(`feed-like-btn-${idx}`);
+      if (likesEl) likesEl.textContent = `${post.likes.toLocaleString('fr-FR')} J'aime`;
+      if (btnEl) btnEl.classList.toggle('liked', post.liked);
+    }
+
+    function triggerHeartBurst(id) {
+      const burst = document.getElementById(id);
+      if (!burst) return;
+      burst.classList.remove('animate');
+      void burst.offsetWidth;
+      burst.classList.add('animate');
+    }
+
+    function submitComment(e) {
+      e.preventDefault();
+      const input = document.getElementById('comment-input');
+      const text = input.value.trim();
+      if (!text) return;
+      posts[activePostIndex].comments.push({ user: "invite_halloween", text });
+      input.value = '';
+      updateModalDetails();
+      renderFeed();
+      showToast("💬 Commentaire validé par le gang des pieds !");
+    }
+
+    function toggleFollow() {
+      isFollowing = !isFollowing;
+      localStorage.setItem('ff77_follow', isFollowing);
+      updateFollowUI();
+      showToast(isFollowing ? "✅ Tu fais maintenant partie du gang @feetfoot77 ! 🦶" : "😢 Tu as quitté le club des panards...");
+    }
+
+    function updateFollowUI() {
+      const btn = document.getElementById('follow-btn');
+      const count = document.getElementById('follower-count');
+      if (isFollowing) {
+        btn.textContent = "abonné(e) ✓";
+        btn.classList.add('following');
+        count.textContent = "77,5K";
+      } else {
+        btn.textContent = "S'abonner";
+        btn.classList.remove('following');
+        count.textContent = "77,4K";
+      }
+    }
+
+    function triggerMegaLike() {
+      costumeLikes += 1;
+      localStorage.setItem('ff77_likes', costumeLikes);
+      document.getElementById('costume-likes').textContent = costumeLikes;
+      showToast(`❤️ +1 Like pour la Chaussure Géante ! (Total : ${costumeLikes})`);
+    }
+
+    function openQrModal() {
+      const currentUrl = window.location.protocol.startsWith('http') ? window.location.href : 'https://kdavong.github.io/feetfoot77/';
+      document.getElementById('qr-url').value = currentUrl;
+      updateQrCode(currentUrl);
+      document.getElementById('qr-modal').classList.add('open');
+    }
+
+    function closeQrModal() {
+      document.getElementById('qr-modal').classList.remove('open');
+    }
+
+    function updateQrCode(url) {
+      const qrImg = document.getElementById('qr-img');
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(url || 'https://kdavong.github.io/feetfoot77/')}`;
+    }
+
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    // Keyboard navigation in modal
+    window.addEventListener('keydown', (e) => {
+      if (!document.getElementById('post-modal').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') navigatePost(-1);
+      if (e.key === 'ArrowRight') navigatePost(1);
+      if (e.key === 'Escape') closePostModal();
+    });
+
+    init();
+  </script>
+</body>
+</html>
