@@ -1453,7 +1453,7 @@
 
     function updateQrCode(url) {
       const qrImg = document.getElementById('qr-img');
-      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(url || 'https://kdavong.github.io/feetfoot77/')}`;
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&color=0-102-204&data=${encodeURIComponent(url || 'https://kdavong.github.io/feetfoot77/')}`;
     }
 
     let toastTimeout;
